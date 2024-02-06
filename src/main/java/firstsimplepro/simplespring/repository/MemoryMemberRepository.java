@@ -2,10 +2,7 @@ package firstsimplepro.simplespring.repository;
 
 import firstsimplepro.simplespring.domain.Member;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
     private Map<Long,Member> store = new HashMap<>();
@@ -20,16 +17,18 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findbyid(Long id) {
-        return Optional.empty();
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override
     public Optional<Member> findbyName(String name) {
-        return Optional.empty();
+        return store.values().stream()
+                .filter(member -> member.getName().equals(name))
+                .findAny(); //
     }
 
     @Override
     public List<Member> findall() {
-        return null;
+        return new ArrayList<>(store.values());
     }
 }
