@@ -12,7 +12,7 @@ public class MemoryMemberRepository implements MemberRepository{
     public Member save(Member member) {
         member.setId(++sequence);
         store.put(member.getId(), member);
-        return member;
+        return member; // オブジェクト参照アドレスを返す（戻り値）
     }
 
     @Override
