@@ -28,6 +28,11 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
+    public Optional<Member> findbyRank(String rank) {
+        //return ;
+    }
+
+    @Override
     public List<Member> findall() {
         return new ArrayList<>(store.values());
     }

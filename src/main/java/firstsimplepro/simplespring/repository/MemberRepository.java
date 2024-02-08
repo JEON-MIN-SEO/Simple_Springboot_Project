@@ -9,5 +9,6 @@ public interface MemberRepository { //インターフェース宣言だけする
     Member save(Member member);
     Optional<Member> findbyid(Long id);
     Optional<Member> findbyName(String name);
+    Optional<Member> findbyRank(String rank);
     List<Member>findall();
 }
