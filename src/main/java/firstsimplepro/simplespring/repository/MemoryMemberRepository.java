@@ -29,7 +29,9 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findbyRank(String rank) {
-        //return ;
+        return store.values().stream()
+                .filter(member -> member.getRank().equals(rank))
+                .findAny(); //
     }
 
     @Override
